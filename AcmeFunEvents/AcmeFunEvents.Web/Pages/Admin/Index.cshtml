@@ -1,0 +1,28 @@
+﻿@page "{handler?}"
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model IndexModel
+@{
+    ViewData["Title"] = "Activities";
+    ViewData["Section"] = "Admin";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h3>@ViewBag.Title</h3>
+        <p id="responseMessage">@Model.Message</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 ">
+        <form method="post">
+            <div class="form-horizontal">
+                <p>Use to reset test data and reseed.</p>
+                <div class="margintop15">
+                    <div class="col-md form-control-12">
+                        <input type="submit" name="button" id="SendBtn" value="Re-seed Site" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

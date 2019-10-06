@@ -1,0 +1,61 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model UpdateModel
+@{
+    ViewData["Title"] = "Edit a Registration";
+    ViewData["Section"] = "Registrations";
+}
+<form method="post">
+    <input type="hidden" asp-for="Registration.Id" />
+    <input type="hidden" asp-for="Registration.Activity" />
+    <input type="hidden" asp-for="Registration.User" />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-horizontal" data-toggle="validator">
+        <div class="control-group" id="registrationForm">
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label asp-for="Registration.User.FirstName" class="control-label"></label>
+                    <input asp-for="Registration.User.FirstName" class="form-control"/>
+                    <span asp-validation-for="Registration.User.FirstName" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="Registration.User.LastName" class="control-label"></label>
+                    <input asp-for="Registration.User.LastName" class="form-control"/>
+                    <span asp-validation-for="Registration.User.LastName" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="Registration.User.EmailAddress" class="control-label"></label>
+                    <input asp-for="Registration.User.EmailAddress" class="form-control"/>
+                    <span asp-validation-for="Registration.User.EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="Registration.User.PhoneNumber" class="control-label"></label>
+                    <input asp-for="Registration.User.PhoneNumber" class="form-control"/>
+                    <span asp-validation-for="Registration.User.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="Registration.Activity.Id" class="control-label"></label>
+                    <select asp-for="Registration.Activity.Id" class="form-control" asp-items="Model.Activities">
+                        <option value="">-- Select --</option>
+                    </select>
+                    <span asp-validation-for="Registration.Activity.Id" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="Registration.Comments" class="control-label"></label>
+                    <textarea asp-for="Registration.Comments" class="form-control"></textarea>
+                    <span asp-validation-for="Registration.Comments" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="controls margintop15">
+                <div class="col-md form-control-12">
+                    <input type="submit" name="button" id="SendBtn" value="@Localizer["Submit"]" class="btn btn-primary"/>
+                    <a href="/Registrations" class="btn btn-primary">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
