@@ -1,5 +1,5 @@
 # Acme Fun Events with Razor Pages
-Demo project with ASP.NET Core 2.1 MVC with Razor Pages, EF, API, Swagger, Bootstrap Tables, Localization
+Demo project with ASP.NET Core 2.1 MVC with Razor Pages, EF, API, Bootstrap Tables
 
 ## Instructions (In Visual Studio)
 
